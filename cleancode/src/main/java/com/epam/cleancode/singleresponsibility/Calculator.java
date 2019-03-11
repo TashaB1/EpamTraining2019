@@ -19,9 +19,9 @@ public class Calculator {
     private int getSum(String numbers) {
         int summa = 0;
 
-        for (String s : numbers.split(SEPARATOR)) {
-            if (isNotEmpty(s)) {
-                summa += Integer.valueOf(s);
+        for (String number : numbers.split(SEPARATOR)) {
+            if (isNotEmpty(number)) {
+                summa += Integer.valueOf(number);
             }
         }
 
@@ -29,15 +29,15 @@ public class Calculator {
     }
 
     private int getProduct(String numbers) {
-        int summa = 1;
+        int product = 1;
 
-        for (String s : numbers.split(SEPARATOR)) {
-            if (isNotEmpty(s)) {
-                summa *= Integer.valueOf(s);
+        for (String number : numbers.split(SEPARATOR)) {
+            if (isNotEmpty(number)) {
+                product *= Integer.valueOf(number);
             }
         }
 
-        return summa;
+        return product;
     }
 
     private boolean isNotEmpty(String numbers) {
@@ -45,8 +45,10 @@ public class Calculator {
     }
 
     private void validate(String numbers) {
-        if (numbers == null || isNotDigits(numbers))
+        if (numbers == null || isNotDigits(numbers)) {
             throw new WrongFormatException();
+        }
+
     }
 
     private boolean isNotDigits(String numbers) {
